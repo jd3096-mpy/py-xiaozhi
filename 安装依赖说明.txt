@@ -1,0 +1,5 @@
+安装依赖步骤：
+1. sudo apt-get install python3-pyaudio 
+2. pip install -r requirements.txt
+3. pip install colorlog requests opuslib edge-tts soundfile pydub cryptography websockets pygame opencv-contrib-python openai
+4. sudo apt install libopencv-dev python3-opencv

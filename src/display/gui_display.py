@@ -750,6 +750,18 @@ class GuiDisplay(BaseDisplay, QObject, metaclass=CombinedMeta):
                 
             uic.loadUi(str(ui_path), self.root)
 
+            # 设置 logo
+            logo_label = self.root.findChild(QLabel, "logo_label")
+            if logo_label:
+                logo_path = Path(__file__).parent / "logo.jpg"
+                if logo_path.exists():
+                    pixmap = QPixmap(str(logo_path))
+                    # 保持图片比例，缩放到合适大小
+                    scaled_pixmap = pixmap.scaled(200, 60, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                    logo_label.setPixmap(scaled_pixmap)
+                else:
+                    self.logger.warning(f"Logo文件不存在: {logo_path}")
+
             # 获取UI中的控件
             self.status_label = self.root.findChild(QLabel, "status_label")
             self.emotion_label = self.root.findChild(QLabel, "emotion_label")

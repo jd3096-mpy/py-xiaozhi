@@ -50,8 +50,9 @@ def get_frame_duration() -> int:
     import pyaudio
     try:
 
-        if not is_official_server(config.get_config("SYSTEM_OPTIONS.NETWORK.OTA_VERSION_URL")):
-            return 60
+        # if (platform.system() == "Linux" or
+        #         not is_official_server(config.get_config("SYSTEM_OPTIONS.NETWORK.OTA_VERSION_URL"))):
+        #     return 60
 
         p = pyaudio.PyAudio()
         # 获取默认输入设备信息
